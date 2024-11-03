@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliment Generator for Warda</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Compliment Generator for Warda</h1>
+        <button id="complimentButton">✨ Get a Compliment! ✨</button>
+        <div id="complimentDisplay" class="compliment-box"></div>
+    </div>
+
+    <script>
+        const compliments = [
+            "Warda, you're an absolute star!",
+            "Warda, you brighten every room you enter!",
+            "Warda, your laughter is the best soundtrack to any day!",
+            "Warda, your creativity knows no bounds!",
+            "Warda, you're the reason the sun shines a little brighter!"
+        ];
+
+        document.getElementById('complimentButton').onclick = function() {
+            const randomIndex = Math.floor(Math.random() * compliments.length);
+            const compliment = compliments[randomIndex];
+            const complimentDisplay = document.getElementById('complimentDisplay');
+            complimentDisplay.innerText = compliment;
+            complimentDisplay.classList.add('show');
+
+            // Remove the compliment after 6 seconds
+            setTimeout(() => {
+                complimentDisplay.classList.remove('show');
+                complimentDisplay.innerText = ''; // Clear text after hiding
+            }, 6000); // Adjusted to 6 seconds
+        };
+    </script>
+</body>
+</html>
